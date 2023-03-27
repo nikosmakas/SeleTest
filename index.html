@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Sample Web Page</title>
+</head>
+<body>
+    <h1>Welcome to my web page!</h1>
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput">
+    <button id="submitButton">Submit</button>
+    <p id="output"></p>
+    <script>
+        const submitButton = document.getElementById("submitButton");
+        const nameInput = document.getElementById("nameInput");
+        const output = document.getElementById("output");
+
+        submitButton.addEventListener("click", function () {
+            const inputText = nameInput.value.trim();
+            const alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+
+            if (inputText.length >= 3 && alphanumericRegex.test(inputText)) {
+                output.innerHTML = "Hello, " + inputText + "!";
+            } else {
+                output.innerHTML =
+                    "Please enter a valid name with at least 3 alphanumeric characters.";
+            }
+        });
+    </script>
+</body>
+</html>
